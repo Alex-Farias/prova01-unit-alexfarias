@@ -16,9 +16,20 @@
     "coverage": "npm run clean && jest --coverage"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "coverageReporters": [
       "lcov",
       "text"
-    ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 90,
+        "branches": 85,
+        "functions": 95,
+        "lines": 95
+      }
+    }
   }
 }
