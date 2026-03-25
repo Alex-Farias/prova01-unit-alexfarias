@@ -78,4 +78,22 @@ describe('Banco', () => {
 
     expect(conta.obterTotalDepositado()).toBe(250);
   });
+
+  test('deve retornar saldo inicial sem movimentações', () => {
+    const conta = new Banco('Alex', 75);
+    expect(conta.obterSaldo()).toBe(75);
+  });
+
+  test('deve lançar erro ao transferir valor maior que o saldo', () => {
+    const origem = new Banco('Origem', 30);
+    const destino = new Banco('Destino', 10);
+
+    expect(() => origem.transferir(100, destino)).toThrow('Saldo insuficiente');
+    expect(destino.obterSaldo()).toBe(10);
+  });
+
+  test('deve lançar erro ao pagar conta sem saldo suficiente', () => {
+    const conta = new Banco('Alex', 40);
+    expect(() => conta.pagarConta(100, 'Aluguel')).toThrow('Saldo insuficiente');
+  });
 });

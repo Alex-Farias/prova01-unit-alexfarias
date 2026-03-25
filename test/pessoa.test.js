@@ -29,4 +29,20 @@ describe('Testes da classe Pessoa', () => {
         const apresentacao = pessoa.apresentar();
         expect(apresentacao).toBe('Olá, meu nome é Maria e eu tenho 31 anos.');
     });
+
+    test('Deve permitir atualizar idade para zero', () => {
+        pessoa.atualizarIdade(0);
+        expect(pessoa.idade).toBe(0);
+    });
+
+    test('Deve manter a última idade após múltiplas atualizações', () => {
+        pessoa.atualizarIdade(31);
+        pessoa.atualizarIdade(35);
+        expect(pessoa.idade).toBe(35);
+    });
+
+    test('Deve refletir alteração direta do nome na apresentação', () => {
+        pessoa.nome = 'Ana';
+        expect(pessoa.apresentar()).toBe('Olá, meu nome é Ana e eu tenho 30 anos.');
+    });
 });

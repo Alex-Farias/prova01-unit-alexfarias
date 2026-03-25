@@ -24,4 +24,23 @@ describe('Carro', () => {
     carro.dirigir(120);
     expect(carro.obterInfo()).toBe('Ford Ka, Ano: 2018, Quilometragem: 120 km');
   });
+
+  test('deve manter marca, modelo e ano definidos no construtor', () => {
+    const carro = new Carro('Fiat', 'Uno', 2010);
+    expect(carro.marca).toBe('Fiat');
+    expect(carro.modelo).toBe('Uno');
+    expect(carro.ano).toBe(2010);
+  });
+
+  test('deve acumular quilometragem em múltiplas chamadas', () => {
+    const carro = new Carro('VW', 'Gol', 2020);
+    carro.dirigir(10);
+    carro.dirigir(15);
+    expect(carro.kilometragem).toBe(25);
+  });
+
+  test('deve exibir 0 km no obterInfo sem dirigir', () => {
+    const carro = new Carro('Honda', 'Fit', 2019);
+    expect(carro.obterInfo()).toBe('Honda Fit, Ano: 2019, Quilometragem: 0 km');
+  });
 });

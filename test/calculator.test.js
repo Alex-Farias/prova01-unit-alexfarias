@@ -15,3 +15,15 @@ test("Multiplicar dois valores válidos", async () => {
 test("Dividir dois valores válidos", async () => {
   expect(dividir(20, 10)).toStrictEqual(2);
 });
+
+test("Somar com número negativo", async () => {
+  expect(somar(10, -3)).toStrictEqual(7);
+});
+
+test("Multiplicar por zero", async () => {
+  expect(multiplicar(999, 0)).toStrictEqual(0);
+});
+
+test("Dividir valores decimais", async () => {
+  expect(dividir(7.5, 2.5)).toStrictEqual(3);
+});

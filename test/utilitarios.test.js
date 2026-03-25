@@ -84,4 +84,20 @@ describe('Utilitarios', () => {
   test('mesclarObjetos deve combinar e sobrescrever propriedades', () => {
     expect(util.mesclarObjetos({ a: 1, b: 2 }, { b: 3, c: 4 })).toEqual({ a: 1, b: 3, c: 4 });
   });
+
+  test('juntarArray deve usar vírgula como separador padrão', () => {
+    expect(util.juntarArray(['x', 'y', 'z'])).toBe('x,y,z');
+  });
+
+  test('ordenarArray não deve mutar o array original', () => {
+    const original = [3, 1, 2];
+    const ordenado = util.ordenarArray(original);
+
+    expect(original).toEqual([3, 1, 2]);
+    expect(ordenado).toEqual([1, 2, 3]);
+  });
+
+  test('primeiraLetraMaiuscula deve retornar vazio para string vazia', () => {
+    expect(util.primeiraLetraMaiuscula('')).toBe('');
+  });
 });
