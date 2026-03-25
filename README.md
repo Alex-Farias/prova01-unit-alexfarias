@@ -1,4 +1,4 @@
-# JEST Unit Test
+# JEST Unit Tests
 
 ## GitHub Actions
 
